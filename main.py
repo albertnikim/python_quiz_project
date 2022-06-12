@@ -81,12 +81,6 @@ def witcher_quiz():
         outputWriter.writerow([currentDateTime, nick, score])
         outputFile.close()
 
-def help():
-    print("All helpful instructions here!")
-    start = str(input("Type 'start' and press enter to continue"))
-    if start=='start':
-        main()
-
 def options_menu():
     print("To view the scores for the Gothic quiz type 'scoresG'. To view the scores for the Witcher quiz type 'scoresW'. To play type 'start'.")
     option = str(input())
@@ -108,7 +102,7 @@ def options_menu():
 def main():
     while True:
         choice= str(input("Welcome to Quizmania!. Press 1 to begin a Gothic quiz or press 2 to begin a Witcher quiz, then press enter."
-                          " Type 'help' and press enter for more instructions. For more options: type 'options' and press enter."))
+                          " For more options: type 'options' and press enter."))
         if choice!="1" and choice!="2" and choice!='options' and choice!='help':
             print("Something went wrong. Try again.")
             continue
