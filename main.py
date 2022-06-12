@@ -12,6 +12,7 @@ question_numW = len((question_bank_witcher.keys()))
 
 import csv
 import datetime
+import json
 
 def gothic_quiz():
     print("Welcome to the Gothic quiz!")
@@ -82,7 +83,8 @@ def witcher_quiz():
         outputFile.close()
 
 def options_menu():
-    print("To view the scores for the Gothic quiz type 'scoresG'. To view the scores for the Witcher quiz type 'scoresW'. To play type 'start'.")
+    print("To view the scores for the Gothic quiz type 'scoresG'. To view the scores for the Witcher quiz type 'scoresW'."
+          " To export questions into a JSON file, type 'exportG' or 'exportW'. To play type 'start'.")
     option = str(input())
     if option=='start':
         main()
@@ -98,6 +100,14 @@ def options_menu():
         scoreData = list(scoreReader)
         print(scoreData)
         scores.close()
+    elif option=='exportG':
+        exportG = open('exportG.json', 'w')
+        json.dump(question_bank_gothic, exportG, indent=6)
+        exportG.close()
+    elif option=='exportW':
+        exportW = open('exportW.json', 'w')
+        json.dump(question_bank_witcher, exportW, indent=6)
+        exportW.close()
 
 def main():
     while True:
